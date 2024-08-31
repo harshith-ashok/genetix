@@ -2,6 +2,14 @@
 
 This is a project to visualize the amount of people who have dominant and recessive traits. This project uses **Flask** as the framework, **Python** as the base programming language with **HTML**, **CSS** for structure and styling along with **TailwindCSS** and **daisyUI** for visuals. It also uses a **SQL** database in the backed and the traits are random 50-50 integers picked using the `random` library in python.
 
+## Technologies used
+- Python as base language
+- Flask as framework
+- SQL for backend
+- Tailwind + daisyUI for CSS
+- Jinja for Flask + HTML
+- HTML, CSS for structure and styles
+
 ## How to run
 ### Dependencies
 - `venv`
@@ -17,4 +25,4 @@ This is a project to visualize the amount of people who have dominant and recess
 - SRP
 - Remove *magic words* and other sensitive content
 
-###### Project by Harshith Ashok CB project in SRM IST Ramapuram
+###### Project by Harshith Ashok | CB project in SRM IST Ramapuram
