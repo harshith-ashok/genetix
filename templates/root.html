@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <title>Genetic Algorithm</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="shortcut icon" href={{url_for('static', filename='favicon.ico'
+    )}} type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body>
+    <span class="flex px-10 p-5"
+      ><img src={{url_for('static', filename='favicon.ico' )}} alt=""
+      class="size-10" />
+      <h1 class="text-3xl font-bold">Genetix</h1>
+    </span>
+    <p class="px-10 text-s text-accent-700">v1.0.0</p>
+    <div class="flex gap-4 px-10 pt-5">
+      <a href="https://github.com/harshith-ashok/genetix" target="_blank"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          class="hover:fill-purple-500"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"
+          /></svg
+      ></a>
+      <a href="https://harshithashok.com" target="_blank"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          class="stroke-10 hover:fill-green-400"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"
+          />
+          <path
+            d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"
+          /></svg
+      ></a>
+    </div>
+    <p class="px-10 py-5 w-[50%]">
+      This is a project to visualize the amount of people who have dominant and
+      recessive traits. This project uses
+      <span class="font-bold">Flask</span> as the framework,
+      <span class="font-bold">Python</span> as the base programming language
+      with <span class="font-bold">HTML, CSS</span> for structure and styling
+      along with <span class="font-bold">TailwindCSS </span>and
+      <span class="font-bold">daisyUI</span> for visuals. It also uses a
+      <span class="font-bold">SQL</span> database in the backed and the traits
+      are random 50-50 integers picked using the
+      <span class="italic">random library in python</span>.
+    </p>
+
+    <div class="flex flex-row gap-2 m-2 px-8 pb-2">
+      <div>
+        <a class="btn btn-error text-white" href="{{ url_for('resetData') }}"
+          >Generate new Data</a
+        >
+      </div>
+      <div class="dropdown">
+        <div tabindex="0" role="button" class="btn">
+          Theme
+          <svg
+            width="12px"
+            height="12px"
+            class="inline-block h-2 w-2 fill-current opacity-60"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 2048 2048"
+          >
+            <path
+              d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"
+            ></path>
+          </svg>
+        </div>
+        <ul
+          tabindex="0"
+          class="dropdown-content bg-base-300 rounded-box z-[1] w-52 p-2 shadow-2xl"
+        >
+          <li>
+            <input
+              type="radio"
+              name="theme-dropdown"
+              class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+              aria-label="Light"
+              value="default"
+            />
+          </li>
+          <li>
+            <input
+              type="radio"
+              name="theme-dropdown"
+              class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+              aria-label="Dark"
+              value="black"
+            />
+          </li>
+          <li>
+            <input
+              type="radio"
+              name="theme-dropdown"
+              class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+              aria-label="Nord"
+              value="nord"
+            />
+          </li>
+          <li>
+            <input
+              type="radio"
+              name="theme-dropdown"
+              class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+              aria-label="Winter"
+              value="winter"
+            />
+          </li>
+          <li>
+            <input
+              type="radio"
+              name="theme-dropdown"
+              class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+              aria-label="Dracula"
+              value="dracula"
+            />
+          </li>
+        </ul>
+      </div>
+      <div>
+        <!-- Open the modal using ID.showModal() method -->
+        <button class="btn btn-ghost underline" onclick="summary.showModal()">
+          Summarize
+        </button>
+        <dialog id="summary" class="modal">
+          <div class="modal-box border border-accent-100">
+            <h3 class="text-lg font-bold">Summary</h3>
+            <p class="text-sm italic">Count of Dominant and Recessive Traits</p>
+            <table
+              class="flex border border-base-500 rounded radius-4 table table-fixed my-5"
+            >
+              <!-- head -->
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Hair Color</th>
+                  <th>Eye Color</th>
+                  <th>Height</th>
+                  <th>Ear Lobe</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Dominant</td>
+                  <td>{{cat_L[0][0][0]}}</td>
+                  <td>{{cat_L[1][0][0]}}</td>
+                  <td>{{cat_L[2][0][0]}}</td>
+                  <td>{{cat_L[3][0][0]}}</td>
+                </tr>
+                <tr>
+                  <td>Recessive</td>
+                  <td>{{50 - cat_L[0][0][0]}}</td>
+                  <td>{{50 - cat_L[1][0][0]}}</td>
+                  <td>{{50 - cat_L[2][0][0]}}</td>
+                  <td>{{50 - cat_L[3][0][0]}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>Number of Perfect Candidates: {{per_data|length}}</p>
+            <p>Number of Unsuitable Candidates: {{res_data|length}}</p>
+          </div>
+          <form method="dialog" class="modal-backdrop">
+            <button>close</button>
+          </form>
+        </dialog>
+      </div>
+    </div>
+    <div class="mx-10 overflow-x-auto">
+      <table class="border border-base-500 table table-fixed table-zebra">
+        <!-- head -->
+        <thead>
+          <tr>
+            <th>S.No</th>
+            <th>Name</th>
+            <th>Hair Color</th>
+            <th>Eye Color</th>
+            <th>Height</th>
+            <th>Ear Lobe</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in master_data %}
+          <tr>
+            <th>{{item[0]}}</th>
+            <td class="min-w-[10px] max-w-[50px] whitespace-normal">
+              {{item[1]}}
+            </td>
+            <td>
+              {% if item[2]=='D' %} Black ({{item[2]}}){% else %} Brown
+              ({{item[2]}}){% endif %}
+            </td>
+            <td>
+              {% if item[2]=='D' %} Brown ({{item[3]}}){% else %} Black
+              ({{item[3]}}){% endif %}
+            </td>
+            <td>
+              {% if item[2]=='D' %} Tall ({{item[4]}}){% else %} Short
+              ({{item[4]}}){% endif %}
+            </td>
+            <td>
+              {% if item[2]=='D' %} Attached ({{item[5]}}){% else %} Unattached
+              ({{item[5]}}){% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <div class="pt-10 flex gap-4 justify-center">
+        <div class="collapse collapse-arrow border border-base-500 my-5">
+          <input type="radio" name="perfect-candidates" />
+          <div class="collapse-title text-xl font-medium">
+            Perfect Candidates
+            <span class="font-bold">({{per_data|length}})</span>
+          </div>
+          <div class="collapse-content">
+            <table
+              class="border border-base-500 table table-fixed table-zebra max-w-[50%]"
+            >
+              <!-- head -->
+              <thead>
+                <tr>
+                  <th>S.No</th>
+                  <th>Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for item in per_data %}
+                <tr>
+                  <th>{{item[0]}}</th>
+                  <td class="min-w-[10px] max-w-[50px] whitespace-normal">
+                    {{item[1]}}
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            <p class="py-5 px-1">
+              Candidates with all the dominant traits; black hair, brown eyes,
+              unattached earlobes and are tall
+            </p>
+          </div>
+        </div>
+        <div class="collapse collapse-arrow border border-base-500 my-5">
+          <input type="radio" name="unsuitable-candidates" />
+          <div class="collapse-title text-xl font-medium">
+            Unsuitable Candidates
+            <span class="font-bold">({{res_data|length}})</span>
+          </div>
+          <div class="collapse-content">
+            <table class="border border-base-500 table table-zebra max-w-[50%]">
+              <!-- head -->
+              <thead>
+                <tr>
+                  <th>S.No</th>
+                  <th>Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for item in res_data %}
+                <tr>
+                  <th>{{item[0]}}</th>
+                  <td class="min-w-[10px] max-w-[50px] whitespace-normal">
+                    {{item[1]}}
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            <p class="py-5 px-1">
+              Candidates with all the recessive traits; brown hair, black eyes,
+              attached earlobes and are short
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-center">
+        <p class="p-5 w-max text-black-500 mb-2 rounded-lg font-bold">
+          ⚠️ This is not an accurate representation of the ratio of people with
+          dominant or recessive traits ⚠️
+        </p>
+      </div>
+      <footer class="footer footer-center text-base-content p-4">
+        <aside>
+          <p class="font-bold italic">
+            Copyright © 2024 - Harshith Ashok - Project for Biology in SRM IST
+          </p>
+        </aside>
+      </footer>
+    </div>
+  </body>
+</html>
