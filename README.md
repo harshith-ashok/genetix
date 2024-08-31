@@ -17,4 +17,4 @@ This is a project to visualize the amount of people who have dominant and recess
 - SRP
 - Remove *magic words* and other sensitive content
 
-###### Project by Harshith Ashok for SRM IST Ramapuram
+###### Project by Harshith Ashok CB project in SRM IST Ramapuram
